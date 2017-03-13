@@ -393,7 +393,7 @@ void BenchmarkNode::run()
   //dvo::core::IntrinsicMatrix intrinsics = dvo::core::IntrinsicMatrix::create(535.4f, 539.2f, 320.1f, 247.6f);
 
   // Tango, US_CA_MTV_ConsoleCorner1
-  dvo::core::IntrinsicMatrix intrinsics = dvo::core::IntrinsicMatrix::create(280.756f, 280.97f, 152f, 85f);
+  dvo::core::IntrinsicMatrix intrinsics = dvo::core::IntrinsicMatrix::create(280.756f, 280.97f, 152.0f, 85.0f);
 
   dvo::core::RgbdCameraPyramid camera(306, 172, intrinsics);
 
