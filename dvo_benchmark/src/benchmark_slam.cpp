@@ -459,7 +459,6 @@ void BenchmarkNode::run()
   sw_online.start();
   for(std::vector<dvo_benchmark::RgbdPair>::iterator it = pairs.begin(); ros::ok() && it != pairs.end(); ++it)
   {
-    std::cerr << "calling load" << std::endl;
     current = load(camera, folder + it->RgbFile(), folder + it->DepthFile());
 
     if(!current) {
