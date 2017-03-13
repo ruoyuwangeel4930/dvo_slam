@@ -393,11 +393,17 @@ void BenchmarkNode::run()
   //dvo::core::IntrinsicMatrix intrinsics = dvo::core::IntrinsicMatrix::create(535.4f, 539.2f, 320.1f, 247.6f);
 
   // Tango, US_CA_MTV_ConsoleCorner1
-  dvo::core::IntrinsicMatrix intrinsics = dvo::core::IntrinsicMatrix::create(280.756f, 280.97f, 152.0f, 85.0f);
+   dvo::core::IntrinsicMatrix intrinsics = dvo::core::IntrinsicMatrix::create(783.506, 784.103f, 319.5f, 239.5f);
+  //  dvo::core::IntrinsicMatrix intrinsics = dvo::core::IntrinsicMatrix::create(280.756f, 280.97f, 152.0f, 85.0f);
 
-  dvo::core::RgbdCameraPyramid camera(306, 172, intrinsics);
+  // Kinect:
+  //dvo::core::RgbdCameraPyramid camera(640, 480, intrinsics);
 
-  // setup tracker configurationc
+  // Tango:
+  dvo::core::RgbdCameraPyramid camera(640, 480, intrinsics);
+
+
+  // setup tracker configuration
   dvo_ros::CameraDenseTrackerConfig dynreconfg_cfg = dvo_ros::CameraDenseTrackerConfig::__getDefault__();
   dynreconfg_cfg.__fromServer__(nh_private_);
 
@@ -453,9 +459,14 @@ void BenchmarkNode::run()
   sw_online.start();
   for(std::vector<dvo_benchmark::RgbdPair>::iterator it = pairs.begin(); ros::ok() && it != pairs.end(); ++it)
   {
+    std::cerr << "calling load" << std::endl;
     current = load(camera, folder + it->RgbFile(), folder + it->DepthFile());
 
-    if(!current) continue;
+    if(!current) {
+      std::cerr << "Could not open: " << folder + it->RgbFile() <<
+          " or " << folder + it->DepthFile() << std::endl;
+      continue;
+    }
 
     // pause in the beginning
 //    renderWhileSwitchAndNotTerminated(visualizer, pause_switch);
