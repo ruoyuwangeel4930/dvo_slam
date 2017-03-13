@@ -384,10 +384,10 @@ void BenchmarkNode::run()
   // TODO: load from file
   //dvo::core::IntrinsicMatrix intrinsics = dvo::core::IntrinsicMatrix::create(525.0f, 525.0f, 320.0f, 240.0f);
   //fr1
-  dvo::core::IntrinsicMatrix intrinsics = dvo::core::IntrinsicMatrix::create(517.3, 516.5, 318.6, 255.3);
+  //dvo::core::IntrinsicMatrix intrinsics = dvo::core::IntrinsicMatrix::create(517.3, 516.5, 318.6, 255.3);
 
   //fr2
-  //dvo::core::IntrinsicMatrix intrinsics = dvo::core::IntrinsicMatrix::create(520.9f, 521.0f, 325.1f, 249.7f);
+  dvo::core::IntrinsicMatrix intrinsics = dvo::core::IntrinsicMatrix::create(520.9f, 521.0f, 325.1f, 249.7f);
 
   //fr3
   //dvo::core::IntrinsicMatrix intrinsics = dvo::core::IntrinsicMatrix::create(535.4f, 539.2f, 320.1f, 247.6f);
